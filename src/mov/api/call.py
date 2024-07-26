@@ -6,16 +6,9 @@ def req2dataframe():
     l = data.get('boxOfficeResult').get('dailyBoxOfficeList') 
     #l = data['BoxOfficeResult']['dailyBoxOfficeList']
     for i in l:
-        #print(type(i))
-        a = i
-        #test_i = i
         print("\n")
         for j in i:
-            print(f"{j} : {a[j]}")
-        #for j in i:
-            #print(f"{j} : {j.key()}")
-            #print(type(j), type(k))
-        #print("\n")
+            print(f"{j} : {i[j]}")
     return l
 
 def req(a='20230101'):
