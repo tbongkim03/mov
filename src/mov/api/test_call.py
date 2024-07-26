@@ -1,8 +1,25 @@
-from mov.api.call import gen_url
+from mov.api.call import gen_url, req, get_key, req2dataframe
 
-def test_gen_url():
+def test_비밀키숨기기():
+    key = get_key()
+    assert "key"
+
+def test_유알엘테스트():
     url = gen_url()
-
-    assert url == "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f3e6e155cfbe1f23ab59dce46ce6818b&targetDt=20120101"
-    assert True
     assert "http" in url
+
+def test_req():
+    code, data = req()
+    
+    assert code == 200
+
+    code, data = req('20230101')
+    assert code == 200
+
+def test_r2d():
+    l = req2dataframe() 
+    assert len(l) > 0
+    v = l[0]
+    assert 'rnum' in v.keys()
+    assert v['rnum'] == '1'
+    #assert False
