@@ -30,6 +30,7 @@ def req(a='20230101'):
     return code, data
 
 def get_key():
+    #"""영화진흥위원회 가입 및 API 키 생성 후 환경변수 선언 필요"""
     key = os.getenv('MOVIE_API_KEY')
     return key
 
