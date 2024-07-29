@@ -1,14 +1,21 @@
 import requests
 import os
+import pandas as pd
 
-def req2dataframe():
+def list2df():
+    l = req2list()
+    df = pd.DataFrame(l)
+    print(df)
+    return df
+
+def req2list() -> list:
     _, data = req() # 생략할 때 사용
     l = data.get('boxOfficeResult').get('dailyBoxOfficeList') 
     #l = data['BoxOfficeResult']['dailyBoxOfficeList']
-    for i in l:
-        print("\n")
-        for j in i:
-            print(f"{j} : {i[j]}")
+    #for i in l:
+    #    print("\n")
+    #    for j in i:
+    #        print(f"{j} : {i[j]}")
     return l
 
 def req(a='20230101'):
