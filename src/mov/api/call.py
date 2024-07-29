@@ -5,7 +5,7 @@ import pandas as pd
 def list2df():
     l = req2list()
     df = pd.DataFrame(l)
-    print(df)
+    #print(df)
     return df
 
 def req2list() -> list:
@@ -18,6 +18,11 @@ def req2list() -> list:
     #        print(f"{j} : {i[j]}")
     return l
 
+def get_key():
+    #"""영화진흥위원회 가입 및 API 키 생성 후 환경변수 선언 필요"""
+    key = os.getenv('MOVIE_API_KEY')
+    return key
+
 def req(a='20230101'):
     url = gen_url(a)
     r = requests.get(url)
@@ -27,12 +32,8 @@ def req(a='20230101'):
     #print(data)
     #print("##########################################################")
     #print(type(req2dataframe()))
+    print(data)
     return code, data
-
-def get_key():
-    #"""영화진흥위원회 가입 및 API 키 생성 후 환경변수 선언 필요"""
-    key = os.getenv('MOVIE_API_KEY')
-    return key
 
 def gen_url(dt="20120101"):
     base_url = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json"
