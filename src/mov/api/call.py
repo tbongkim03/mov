@@ -1,6 +1,20 @@
 import requests
 import os
 import pandas as pd
+#추가 부분
+from datetime import datetime
+
+def save2df():
+    df = list2df()
+    # df에 load_dt 컬럼 추가 (조회 일자 YYYYMMDD 형식으로)
+    # 아래 파일 저장시 load_dt 기준으로 파티셔닝
+    now = datetime.now()
+    #print(now)
+    date = now.strftime('%Y%m%d')
+    df['load_dt'] = date
+    df.to_parquet('~/tmp/test_parquet', partition_cols=['load_dt'])
+    return df
+
 
 def list2df():
     l = req2list()
@@ -32,7 +46,7 @@ def req(a='20230101'):
     #print(data)
     #print("##########################################################")
     #print(type(req2dataframe()))
-    print(data)
+    #print(data)
     return code, data
 
 def gen_url(dt="20120101"):
