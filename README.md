@@ -12,6 +12,8 @@ $ pip install git+https://github.com/tbongkim03/mov.git
 $ git clone <URL>
 $ cd <DIR>
 $ source .venv/bin/activate
+$ pdm install
+
 $ # option
 $ pdm venv create
 ```
