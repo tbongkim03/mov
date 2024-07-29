@@ -14,6 +14,8 @@ $ cd <DIR>
 $ source .venv/bin/activate
 $ pdm install
 
+$ pytest
+
 $ # option
 $ pdm venv create
 ```
