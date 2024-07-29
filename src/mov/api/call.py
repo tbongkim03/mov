@@ -39,7 +39,7 @@ def get_key():
     key = os.getenv('MOVIE_API_KEY')
     return key
 
-def req(load_dt='20230101'):
+def req(load_dt='20120101'):
     url = gen_url(load_dt)
     r = requests.get(url)
     code = r.status_code
