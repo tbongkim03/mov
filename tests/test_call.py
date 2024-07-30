@@ -1,5 +1,11 @@
-from mov.api.call import gen_url, req, get_key, req2list, list2df, save2df
+from mov.api.call import gen_url, req, get_key, req2list, list2df, save2df, echo
 import pandas as pd
+
+def test_echo():
+    res = echo("hellllo")
+    print(res)
+    assert len(res) > 0
+
 def test_비밀키숨기기():
     key = get_key()
     #print('1')
