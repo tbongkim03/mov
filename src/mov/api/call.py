@@ -1,8 +1,7 @@
 import requests
 import os
 import pandas as pd
-#추가 부분
-from datetime import datetime
+
 
 def save2df(load_dt='20120101'):
 
