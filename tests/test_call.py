@@ -1,5 +1,10 @@
-from mov.api.call import gen_url, req, get_key, req2list, list2df, save2df, echo_2
+from mov.api.call import gen_url, req, get_key, req2list, list2df, save2df, echo_2, apply_type2df
 import pandas as pd
+
+def test_apply_type2df():
+    df = apply_type2df()
+    print(df.dtypes)
+    assert isinstance(df, pd.DataFrame)
 
 def test_echo():
     res = echo_2("hellllo")
