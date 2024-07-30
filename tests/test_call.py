@@ -1,8 +1,8 @@
-from mov.api.call import gen_url, req, get_key, req2list, list2df, save2df, echo
+from mov.api.call import gen_url, req, get_key, req2list, list2df, save2df, echo_2
 import pandas as pd
 
 def test_echo():
-    res = echo("hellllo")
+    res = echo_2("hellllo")
     print(res)
     assert len(res) > 0
 
