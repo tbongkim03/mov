@@ -20,9 +20,10 @@ def test_유알엘테스트():
     url = gen_url()
     #print('2')
     #assert "http" in url
-    url = gen_url('20241231')
+    d = {"multiMovieYn": "N"}
+    url = gen_url(url_param = d)
     print(url)
-    assert '20241231' in url
+    assert "multiMovieYn" in url
 
 def test_req():
     code, data = req()
@@ -51,8 +52,8 @@ def test_list2df():
     #print('5')
 
 def test_save2df():
-    df = save2df(load_dt='20241231')
-    print("\n")
-    print(df)
+    df = save2df()
     assert isinstance(df, pd.DataFrame)
-    assert 'load_dt' in df.columns 
+    assert 'load_dt' in df.columns
+    assert len(df) == 10
+
