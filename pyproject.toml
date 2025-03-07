@@ -1,20 +1,31 @@
 [project]
 name = "mov"
-version = "0.1.0"
+version = "0.2.1"
 description = "Default template for PDM package"
 authors = [
     {name = "tbongkim03", email = "tbongkim03@gmial.com"},
 ]
 dependencies = [
     "requests>=2.32.3",
+    "pandas>=2.2.2",
+    "pyarrow>=17.0.0",
 ]
-requires-python = "==3.11.*"
+requires-python = ">=3.9"
 readme = "README.md"
 license = {text = "MIT"}
 
+[project.scripts]
+mov-ping = "mov.cli:ping"
+
+[tool.pytest.ini_options]
+pythonpath = ["src/", "."]
+
+[project.urls]
+Homepage = "https://github.com/tbongkim03/mov"
+Issues = "https://github.com/tbongkim03/mov/issues"
 
 [tool.pdm]
-distribution = false
+distribution = true
 
 [tool.pdm.dev-dependencies]
 test = [
